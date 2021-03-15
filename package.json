@@ -1,0 +1,21 @@
+{
+	"name": "junglejs-sveltekit",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"start": "svelte-kit start"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-node": "next",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.29.0",
+		"vite": "^2.0.4",
+		"graphql": "^15.5.0",
+		"graphql-helix": "^1.2.3"
+	},
+	"type": "module",
+	"engines": {
+		"node": ">= 12.17.0"
+	}
+}
