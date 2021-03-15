@@ -1,0 +1,1 @@
+run = "npx sirv-cli build --host"

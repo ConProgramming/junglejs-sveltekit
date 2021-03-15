@@ -4,6 +4,8 @@ const junglePreprocess = {
   script: async ({ content }) => {
     if (!content.includes('QUERY')) return { code: content };
 
+    //TODO: Resolve variables like page_params_slug to page.params.slug
+
     return { code: `
       ${content}
 
