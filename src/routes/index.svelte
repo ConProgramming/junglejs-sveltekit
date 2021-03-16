@@ -1,23 +1,26 @@
 <script context="module">
   const QUERY = `
-    query Doubled($x: Int) {
-      doubled: double(number: $x)
+    query Author($id: Int!) {
+		author(id: $id) {
+			firstName
+			lastName
+		}
     }
   `;
 
   const VARIABLES = {
-    x: 13
+    id: 1
   }
 </script>
 
 <script>
 	import Counter from '$lib/Counter.svelte';
-  export let doubled;
+  	export let author;
 </script>
 
 <main>
-	<h1>Hello there!</h1>
-	<h2>The API said {doubled}</h2>
+	<h1>Hello there {author.firstName}!</h1>
+	<h2>The API said your last name is {author.lastName}</h2>
 
 	<Counter />
 

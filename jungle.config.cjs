@@ -6,9 +6,6 @@ module.exports = {
                 { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
                 { id: 3, firstName: 'Mikhail', lastName: 'Novikov' },
             ], queryArgs: { id: 'Int!' },
-        },
-        {
-            format: "dir/markdown", name: "post", items: 'static/posts/', queryArgs: { slug: 'String!' },
         }
     ]
 }

@@ -14,8 +14,6 @@
 		"junglejs": "file:.jungle/junglejs",
 		"graphql": "^15.5.0",
 		"graphql-helix": "^1.2.3",
-		"graphql-compose": "^7.25.0",
-		"graphql-compose-json": "^6.0.0",
 		"svelte": "^3.29.0",
 		"vite": "^2.0.4"
 	},
