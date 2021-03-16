@@ -6,7 +6,7 @@
   `;
 
   const VARIABLES = {
-    x: 12
+    x: 13
   }
 </script>
 
@@ -16,7 +16,7 @@
 </script>
 
 <main>
-	<h1>Hello world!</h1>
+	<h1>Hello there!</h1>
 	<h2>The API said {doubled}</h2>
 
 	<Counter />
