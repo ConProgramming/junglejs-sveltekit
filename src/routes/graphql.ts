@@ -3,9 +3,7 @@ import { processRequest } from "graphql-helix/dist/process-request.js";
 import { renderGraphiQL } from "graphql-helix/dist/render-graphiql.js";
 import { shouldRenderGraphiQL } from "graphql-helix/dist/should-render-graphiql.js";
 
-import { createSchema } from "junglejs";
-
-const schemaPromise = createSchema();
+const schemaPromise = import("junglejs").then((module) => (module.createSchema()));
 
 const respond = async (request) => {
 	if (shouldRenderGraphiQL(request)) return {
