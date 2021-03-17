@@ -1,3 +1,5 @@
+//TODO: Make this export an async function, that function will get called and its result will be 
+//      cached to the filesystem for it to be then read in by sveltekit
 module.exports = {
     dataSources: [
         {

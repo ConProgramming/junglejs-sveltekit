@@ -3,6 +3,7 @@
     "dependencies": {
         "graphql-compose": "^7.25.0",
         "graphql-compose-json": "^6.0.0",
+        "graphql-tag": "^2.11.0",
         "lodash.find": "^4.6.0"
     }
 }

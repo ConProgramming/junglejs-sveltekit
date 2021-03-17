@@ -3,6 +3,8 @@ const { composeWithJson } = require('graphql-compose-json');
 
 const find = require('lodash.find');
 
+//TODO: Add back types
+
 module.exports = {
   createSchema: async () => {
     const jungleConfig = require(process.cwd() + '/jungle.config.cjs');
@@ -45,11 +47,23 @@ module.exports = {
 
       return {
         code: `
+          import { browser } from "$app/env";
+          
           ${content}
     
-          export const load = async({ fetch }) => {
+          export const load = async({ fetch, page }) => {
+            const { getVariablesFromPage } = await import("junglejs/helpers.mjs");
+
+            let variables = {
+              ...getVariablesFromPage(page, QUERY),
+            }
+
+            try {
+              variables = { ...variables, ...VARIABLES }
+            } catch(e) {}
+
             const response = await fetch("/graphql", {
-              body: { query: QUERY, variables: (VARIABLES ? VARIABLES : {}) },
+              body: { query: QUERY, variables },
               headers: {
                 "Content-Type": "application/json",
                 "cache": "no-cache"
@@ -71,5 +85,5 @@ module.exports = {
         `,
       };
     },
-  }
+  },
 };
