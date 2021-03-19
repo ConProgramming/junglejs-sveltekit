@@ -10,7 +10,7 @@
 		"@junglejs/adapter-junglejs": "file:.jungle/@junglejs/adapter-junglejs",
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "file:../kit/packages/kit",
 		"junglejs": "file:.jungle/junglejs",
 		"graphql": "^15.5.0",
 		"graphql-helix": "^1.2.3",

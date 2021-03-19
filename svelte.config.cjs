@@ -11,6 +11,8 @@ module.exports = {
     // specifying a different adapter
     adapter: ['@junglejs/adapter-junglejs', { adaptwith: '@sveltejs/adapter-static', jungleConfig }],
 
+    clientSideRouting: false,
+
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte'
   }
