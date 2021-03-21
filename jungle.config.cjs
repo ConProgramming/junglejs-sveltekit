@@ -13,7 +13,7 @@ module.exports = {
             ], queryArgs: { id: 'Int!' },
         }
     ],
-    handlers: {
+    sourceHandlers: {
         "json": (items) => items,
         "fetch/json": async (items) => Object.values(await (await fetch(...items)).json())
     }
