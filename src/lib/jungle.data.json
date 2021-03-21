@@ -1,0 +1,46 @@
+[
+  {
+    "format": "json",
+    "name": "book",
+    "items": [
+      {
+        "bib_key": "ISBN:0201558025",
+        "info_url": "https://openlibrary.org/books/OL1429049M/Concrete_mathematics",
+        "preview": "restricted",
+        "preview_url": "https://archive.org/details/concretemathemat00grah_444",
+        "thumbnail_url": "https://covers.openlibrary.org/b/id/135182-S.jpg"
+      },
+      {
+        "bib_key": "LCCN:93005405",
+        "info_url": "https://openlibrary.org/books/OL1397864M/Zen_speaks",
+        "preview": "noview",
+        "preview_url": "https://openlibrary.org/books/OL1397864M/Zen_speaks",
+        "thumbnail_url": "https://covers.openlibrary.org/b/id/240726-S.jpg"
+      }
+    ]
+  },
+  {
+    "format": "json",
+    "name": "author",
+    "items": [
+      {
+        "id": 1,
+        "firstName": "Tom",
+        "lastName": "Coleman"
+      },
+      {
+        "id": 2,
+        "firstName": "Sashko",
+        "lastName": "Stubailo"
+      },
+      {
+        "id": 3,
+        "firstName": "Mikhail",
+        "lastName": "Novikov"
+      }
+    ],
+    "queryArgs": {
+      "id": "Int!"
+    }
+  }
+]

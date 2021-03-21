@@ -1,13 +1,20 @@
-//TODO: Make this export an async function, that function will get called and its result will be 
-//      cached to the filesystem for it to be then read in by sveltekit
-module.exports = {
-    dataSources: [
-        {
-            format: "json", name: "author", items: [
-                { id: 1, firstName: 'Tom', lastName: 'Coleman' },
-                { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
-                { id: 3, firstName: 'Mikhail', lastName: 'Novikov' },
-            ], queryArgs: { id: 'Int!' },
-        }
-    ]
-}
+const fetch = require('node-fetch');
+
+module.exports = async () => {
+    const bookRes = await fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0201558025,LCCN:93005405&format=json');
+
+    return {
+        dataSources: [
+            {
+                format: "json", name: "book", items: Object.values(await bookRes.json()),
+            },
+            {
+                format: "json", name: "author", items: [
+                    { id: 1, firstName: 'Tom', lastName: 'Coleman' },
+                    { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
+                    { id: 3, firstName: 'Mikhail', lastName: 'Novikov' },
+                ], queryArgs: { id: 'Int!' },
+            }
+        ]
+    }
+};

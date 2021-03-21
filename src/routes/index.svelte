@@ -1,11 +1,15 @@
 <script context="module">
   const QUERY = `
     query Authors {
-		authors {
-			id
-			firstName
-			lastName
-		}
+      authors {
+        id
+        firstName
+        lastName
+      }
+      books {
+        bibKey: bib_key
+        thumbnail: thumbnail_url
+      }
     }
   `;
 
@@ -13,7 +17,7 @@
 
 <script>
   import Counter from "$lib/Counter.svelte";
-  export let authors = [];
+  export let authors = [], books = [];
 </script>
 
 <main>
@@ -22,10 +26,16 @@
   <Counter />
 
   {#each authors as author}
-    <h2>
+    <h3>
       The API said <a href="/author/{author.id}">{author.id}</a> is named {author.firstName}
       {author.lastName}
-    </h2>
+    </h3>
+  {/each}
+
+  {#each books as book}
+    <h3>
+      The API said {book.bibKey} is <img src={book.thumbnail}/>
+    </h3>
   {/each}
 
   <p>

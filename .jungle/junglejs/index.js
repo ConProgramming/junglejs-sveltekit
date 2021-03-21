@@ -2,40 +2,33 @@ const { SchemaComposer } = require('graphql-compose');
 const { composeWithJson } = require('graphql-compose-json');
 
 const find = require('lodash.find');
+const path = require('path');
 
 //TODO: Add back types
 
 module.exports = {
-  createSchema: async () => {
-    const jungleConfig = require(process.cwd() + '/jungle.config.cjs');
-    const { dataSources = [] } = jungleConfig;
-
+  createSchema: (dataSources = []) => {
     const schemaComposer = new SchemaComposer();
 
-    dataSources.forEach(source => {
+    for (const source of dataSources) {
       const typeName = source.name.charAt(0).toUpperCase() + source.name.slice(1);
       let newFields = {};
 
-      switch (source.format) {
-        //TODO: handle dir/markdown, etc...
-        case "json":
-          composeWithJson(typeName, source.items[0], { schemaComposer });
+      composeWithJson(typeName, source.items[0], { schemaComposer });
 
-          newFields[source.name] = {
-            type: typeName,
-            args: source.queryArgs,
-            resolve: (_, args) => find(source.items, args),
-          };
+      newFields[source.name] = {
+        type: typeName,
+        args: source.queryArgs,
+        resolve: (_, args) => find(source.items, args),
+      };
 
-          newFields[source.name + "s"] = {
-            type: `[${typeName}]`,
-            resolve: () => source.items,
-          };
-          break;
-      }
+      newFields[source.name + "s"] = {
+        type: `[${typeName}]`,
+        resolve: () => source.items,
+      };
 
       schemaComposer.Query.addFields(newFields);
-    });
+    }
 
     return schemaComposer.buildSchema();
   },
