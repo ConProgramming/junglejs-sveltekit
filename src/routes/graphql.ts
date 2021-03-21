@@ -5,7 +5,9 @@ import { shouldRenderGraphiQL } from "graphql-helix/dist/should-render-graphiql.
 
 const schemaPromise = import("junglejs").then(async (module) => {
 	const data = (await import("../lib/jungle.data.json")).default;
-	return module.createSchema(data);
+	const createSchema = module.default?.createSchema ?? module.createSchema;
+	
+	return createSchema(data);
 });
 
 const respond = async (request) => {
