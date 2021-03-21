@@ -15,6 +15,24 @@ module.exports = {
     ],
     sourceHandlers: {
         "json": (items) => items,
-        "fetch/json": async (items) => Object.values(await (await fetch(...items)).json())
+        "fetch/json": async (items) => Object.values(await (await fetch(...items)).json()),
+        "dir/markdown": (items) => {
+            throw "TODO: Implement as @junglejs/handler-dir-markdown";
+            /*return fs.readdirSync(path.join(dirname, items)).map((fileName) => {
+                const post = fs.readFileSync(
+                    path.resolve(path.join(dirname, items), fileName),
+                    "utf-8"
+                );
+
+                const renderer = new marked.Renderer();
+
+                const { data, content } = grayMatter(post);
+                const html = marked(content, { renderer });
+
+                data['path'] = fileName.substring(0, fileName.length - 3);
+
+                return { html, ...data };
+            })*/
+        }
     }
 };
