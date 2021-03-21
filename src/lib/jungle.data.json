@@ -1,6 +1,6 @@
 [
   {
-    "format": "json",
+    "format": "fetch/json",
     "name": "book",
     "items": [
       {

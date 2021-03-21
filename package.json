@@ -4,7 +4,8 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"start": "svelte-kit start"
+		"start": "svelte-kit start",
+		"assemble": "node .jungle/temp-cli.cjs"
 	},
 	"devDependencies": {
 		"@junglejs/adapter-junglejs": "file:.jungle/@junglejs/adapter-junglejs",
